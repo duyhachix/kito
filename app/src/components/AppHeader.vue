@@ -62,7 +62,7 @@
 				</div>
 			</div>
 			<div class="collapse-menu">
-				<font-awesome-icon :icon="['fas', 'bars']" size="2xl"/>
+				<font-awesome-icon :icon="['fas', 'bars']" size="2xl" />
 			</div>
 		</div>
 	</header>
@@ -203,6 +203,16 @@ export default {
 		}
 	}
 }
+@media screen and (max-width: 1550px) {
+	.header {
+		&__credit {
+			padding: 0 150px;
+		}
+		&__nav {
+			padding: 0 150px;
+		}
+	}
+}
 @media screen and (max-width: 480px) {
 	.header {
 		height: 75px;
@@ -213,7 +223,7 @@ export default {
 			padding: 0;
 			display: flex;
 			align-items: center;
-			.title{
+			.title {
 				padding-left: 20px;
 			}
 			.collapse-menu {

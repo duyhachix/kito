@@ -242,6 +242,12 @@ export default {
 		line-height: 26px;
 	}
 }
+@media screen and (max-width: 1700px) {
+	.footer {
+		padding: 0 150px;
+	}
+	
+}
 @media screen and (max-width: 480px) {
 	.footer {
 		padding: 0 10px;

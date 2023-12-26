@@ -1028,6 +1028,24 @@ export default {
 				grid-template-columns: 1fr;
 				padding: 0 20px;
 				gap: 20px;
+				.card {
+					max-height: 390px;
+				}
+				.card__content {
+					display: flex;
+					justify-content: space-evenly;
+					.card--image {
+						height: 30%;
+						margin-bottom: 0;
+						img {
+							height: 100%;
+						}
+					}
+					.card--info {
+						justify-content: center;
+						height: 60%;
+					}
+				}
 			}
 		}
 		&__benefit {
