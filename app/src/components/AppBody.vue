@@ -87,6 +87,24 @@
 				</div>
 			</div>
 		</div>
+		<div class="body__benefit section">
+			<div class="benefit__container">
+				<div class="benefit--term" v-for="benefit in benefits" :key="benefit.title">
+					<div class="benefit--term--icon">
+						<b-iconstack class="stack--icon" font-scale="3">
+							<b-icon stacked :icon="benefit.inner_icon" scale="0.5"></b-icon>
+							<b-icon stacked :icon="benefit.outter_icon" class="outer-icon"></b-icon>
+						</b-iconstack>
+					</div>
+					<div class="benefit--term--title">
+						<p>{{ benefit.title }}</p>
+						<h6>{{ benefit.context }}</h6>
+					</div>
+				</div>
+				<!-- <div class="benefit--term"></div>
+				<div class="benefit--term"></div> -->
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -160,6 +178,26 @@ export default {
 				},
 				{
 					icon: 'youtube',
+				},
+			],
+			benefits: [
+				{
+					outter_icon: 'circle',
+					inner_icon: 'truck',
+					title: 'Free Shipping',
+					context: 'Free shipping orders from $150',
+				},
+				{
+					outter_icon: 'circle',
+					inner_icon: 'gift-fill',
+					title: 'Gift/Discount Codes',
+					context: 'Many discount codes every day',
+				},
+				{
+					outter_icon: 'circle',
+					inner_icon: 'recycle',
+					title: 'Money Return',
+					context: 'Return it  within  30 days',
 				},
 			],
 		};
@@ -455,6 +493,45 @@ export default {
 			.card {
 				border-radius: 10px;
 				box-shadow: 0px 4px 30px 0px rgba(10, 30, 35, 0.1);
+			}
+		}
+	}
+	&__benefit {
+		width: 100%;
+		height: 160px;
+		border: 1px solid rgb(200, 200, 200);
+		border-radius: 10px;
+		.benefit__container {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			width: 100%;
+			height: 100%;
+			.benefit--term {
+				place-self: center;
+				display: flex;
+				gap: 20px;
+				&--icon {
+					.stack--icon {
+						color: $pink-color;
+					}
+				}
+				&--title {
+					text-align: left;
+					p {
+						font-family: Sansita;
+						font-size: 24px;
+						font-weight: 700;
+						line-height: 31px;
+						margin-bottom: 10px;
+					}
+					h6 {
+						font-family: Open Sans;
+						font-size: 15px;
+						font-weight: 400;
+						line-height: 26px;
+						margin: 0;
+					}
+				}
 			}
 		}
 	}
