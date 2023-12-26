@@ -23,11 +23,11 @@
 			</div>
 		</div>
 		<div class="body__proud section">
-			<div class="body__proud--title">
+			<div class="body__proud--title mid-section">
 				<p>{{ proudTitle }}</p>
 			</div>
 			<div class="body__proud--cardGroup">
-				<b-card tag="article" class="mb-2 card" v-for="card in cards" :key="card.title">
+				<b-card tag="article" class="mb-2 card" v-for="card in proudCards" :key="card.title">
 					<b-card-text>
 						<h2>{{ card.stat }}</h2>
 						<h3>{{ card.title }}</h3>
@@ -57,6 +57,36 @@
 				</div>
 			</div>
 		</div>
+		<div class="body__team section">
+			<div class="body__team--title mid-section">
+				<p>Our team</p>
+				<div class="body__team--cardGroup">
+					<b-card tag="article" class="mb-2 card" v-for="card in teamCards" :key="card.title">
+						<b-card-text class="card__content">
+							<div class="card--image">
+								<img :src="card.profileImage" alt="" />
+							</div>
+							<div class="card--info">
+								<h2>{{ card.name }}</h2>
+								<h3>{{ card.role }}</h3>
+								<p>
+									{{ card.quote }}
+								</p>
+								<div class="iconsGroup">
+									<font-awesome-icon
+										v-for="personal in personals"
+										:key="personal.icon"
+										:icon="['fab', personal.icon]"
+										size="xs"
+										class="personal_info"
+									/>
+								</div>
+							</div>
+						</b-card-text>
+					</b-card>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -66,7 +96,7 @@ export default {
 	data() {
 		return {
 			proudTitle: 'What We Are Proud Of.',
-			cards: [
+			proudCards: [
 				{
 					stat: '20+',
 					title: 'Total top services',
@@ -88,6 +118,50 @@ export default {
 					context: 'lorem ipsum dolor sit amet',
 				},
 			],
+			teamCards: [
+				{
+					profileImage: require('../assets/icons/user1.png'),
+					name: 'Name 1',
+					role: 'CEO & Founder',
+					quote:
+						'lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+				},
+				{
+					profileImage: require('../assets/icons/user2.png'),
+					name: 'Name 2',
+					role: 'Personel',
+					quote:
+						'lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+				},
+				{
+					profileImage: require('../assets/icons/user3.png'),
+					name: 'Name 3',
+					role: 'Personel',
+					quote:
+						'lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+				},
+				{
+					profileImage: require('../assets/icons/user4.png'),
+					name: 'Name 4',
+					role: 'Personel',
+					quote:
+						'lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+				},
+			],
+			personals: [
+				{
+					icon: 'facebook-f',
+				},
+				{
+					icon: 'twitter',
+				},
+				{
+					icon: 'instagram',
+				},
+				{
+					icon: 'youtube',
+				},
+			],
 		};
 	},
 };
@@ -102,6 +176,15 @@ export default {
 	height: 100%;
 	.section {
 		margin-bottom: 100px;
+	}
+	.mid-section {
+		text-align: center;
+		font-family: Sansita;
+		font-size: 54px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 70px;
+		text-transform: capitalize;
 	}
 	&__title {
 		margin-top: 100px;
@@ -297,6 +380,84 @@ export default {
 			}
 		}
 	}
+	&__team {
+		width: 100%;
+		height: 100%;
+		&--title {
+			p {
+				font-family: Sansita;
+				font-style: normal;
+				font-weight: 700;
+				line-height: 70px;
+				margin-bottom: 50px;
+			}
+		}
+		&--cardGroup {
+			width: 100%;
+			height: 100%;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			column-gap: 30px;
+			.card__content {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+				margin: 0;
+				.card--image {
+					width: 80%;
+					place-self: center;
+					margin-bottom: 30px;
+					img {
+						height: auto;
+						width: 100%;
+						object-fit: contain;
+					}
+				}
+				.card--info {
+					display: flex;
+					flex-direction: column;
+					h2 {
+						font-family: Barlow;
+						font-size: 24px;
+						font-weight: 700;
+						line-height: 31px;
+					}
+					h3 {
+						font-family: Open Sans;
+						font-size: 15px;
+						font-weight: 400;
+						line-height: 26px;
+						opacity: 0.5;
+					}
+					p {
+						font-size: 1rem;
+						line-height: 1.5rem;
+						font-family: Open Sans;
+						font-size: 15px;
+						font-weight: 400;
+						line-height: 26px;
+						margin: 0;
+					}
+					.iconsGroup {
+						margin-top: 15px;
+						display: flex;
+						justify-content: center;
+						height: 16px;
+						.personal_info {
+							height: 100%;
+							width: fit-content;
+							cursor: pointer;
+							margin: 0 5px;
+						}
+					}
+				}
+			}
+			.card {
+				border-radius: 10px;
+				box-shadow: 0px 4px 30px 0px rgba(10, 30, 35, 0.1);
+			}
+		}
+	}
 }
 @media screen and (max-width: 1700px) {
 	.body {
@@ -306,7 +467,7 @@ export default {
 		.section {
 			margin-bottom: 100px;
 		}
-		/* &__title {
+		&__title {
 			margin-top: 100px;
 			text-align: left;
 			width: fit-content;
@@ -420,7 +581,7 @@ export default {
 					}
 				}
 			}
-		} */
+		}
 		&__about {
 			display: grid;
 			grid-template-columns: 2fr 1fr;
