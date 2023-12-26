@@ -101,8 +101,6 @@
 						<h6>{{ benefit.context }}</h6>
 					</div>
 				</div>
-				<!-- <div class="benefit--term"></div>
-				<div class="benefit--term"></div> -->
 			</div>
 		</div>
 	</div>
