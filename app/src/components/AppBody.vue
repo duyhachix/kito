@@ -27,7 +27,7 @@
 				<p>{{ proudTitle }}</p>
 			</div>
 			<div class="body__proud--cardGroup">
-				<b-card tag="article" class="mb-2 card" v-for="card in proudCards" :key="card.title">
+				<b-card tag="article" class="card" v-for="card in proudCards" :key="card.title">
 					<b-card-text>
 						<h2>{{ card.stat }}</h2>
 						<h3>{{ card.title }}</h3>
@@ -50,8 +50,7 @@
 					<h1>Big Love For Our Lovely Kid</h1>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas nisi cumque culpa, nulla
-						ducimus placeat perferendis quae, dignissimos ea porro atque non sed similique id
-						impedit nesciunt quos excepturi minima.
+						ducimus placeat perferendis quae
 					</p>
 					<h5>CONTACT US</h5>
 				</div>
@@ -61,7 +60,7 @@
 			<div class="body__team--title mid-section">
 				<p>Our team</p>
 				<div class="body__team--cardGroup">
-					<b-card tag="article" class="mb-2 card" v-for="card in teamCards" :key="card.title">
+					<b-card tag="article" class="card" v-for="card in teamCards" :key="card.title">
 						<b-card-text class="card__content">
 							<div class="card--image">
 								<img :src="card.profileImage" alt="" />
@@ -255,10 +254,10 @@ export default {
 	&__cta {
 		margin-top: 70px;
 		width: 100%;
-		background: #e5f8fd;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		&--left {
+			background: #e5f8fd;
 			padding: 100px 70px;
 			text-align: left;
 			height: fit-content;
@@ -277,9 +276,11 @@ export default {
 				line-height: 70px;
 				margin-bottom: 40px;
 			}
+
 			.contact {
 				padding: 17px 40px;
 				background-color: #ec80a0;
+				color: #fff;
 				text-align: center;
 				width: fit-content;
 				border-radius: 10px;
@@ -410,6 +411,7 @@ export default {
 				h5 {
 					padding: 14px 30px;
 					background-color: $pink-color;
+					color: $white-color;
 					border-radius: 10px;
 					width: fit-content;
 				}
@@ -536,7 +538,7 @@ export default {
 }
 @media screen and (max-width: 1700px) {
 	.body {
-		padding: 0 255px;
+		padding: 0 150px;
 		width: 100%;
 		height: 100%;
 		.section {
@@ -574,7 +576,6 @@ export default {
 		&__cta {
 			margin-top: 70px;
 			width: 100%;
-			background: #e5f8fd;
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			&--left {
@@ -738,9 +739,7 @@ export default {
 }
 @media screen and (max-width: 1550px) {
 	.body {
-		padding: 0 255px;
 		width: 100%;
-		height: 100%;
 		.section {
 			margin-bottom: 100px;
 		}
@@ -937,6 +936,102 @@ export default {
 					}
 				}
 			}
+		}
+	}
+}
+@media screen and (max-width: 480px) {
+	.body {
+		padding: 0;
+		&__title {
+			width: 100%;
+			text-align: center;
+			margin-top: 60px;
+			&--option {
+				justify-content: center;
+			}
+		}
+		&__cta {
+			display: flex;
+			margin-top: 25px;
+			grid-template-columns: 1fr;
+			flex-direction: column-reverse;
+			&--left {
+				padding: 60px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				.about {
+					font-size: 15px;
+				}
+				.quote {
+					font-family: Sansita;
+					font-size: 30px;
+					line-height: 40px;
+					margin-bottom: 30px;
+				}
+				.contact {
+					padding: 13px 30px;
+					font-size: 17px;
+				}
+			}
+		}
+		&__proud {
+			&--title {
+				p {
+					font-family: Sansita;
+					font-size: 36px;
+					font-weight: 700;
+					line-height: 47px;
+				}
+			}
+			&--cardGroup {
+				grid-template-columns: 1fr;
+				padding: 0 20px;
+				gap: 20px;
+			}
+		}
+		&__about {
+			grid-template-columns: 1fr;
+			&--left {
+				gap: 0;
+				.left__image {
+					height: 100%;
+					padding: 10px 20px;
+				}
+			}
+			&--right {
+				padding: 0 20px;
+				height: 100%;
+				.right__container {
+					height: 100%;
+					padding: 20px;
+					h1 {
+						padding: 0 60px;
+					}
+					h5 {
+						color: $white-color;
+						padding: 13px 30px;
+					}
+				}
+			}
+		}
+		&__team {
+			&--title {
+				p {
+					font-family: Sansita;
+					font-size: 36px;
+					font-weight: 700;
+					line-height: 47px;
+				}
+			}
+			&--cardGroup {
+				grid-template-columns: 1fr;
+				padding: 0 20px;
+				gap: 20px;
+			}
+		}
+		&__benefit {
+			display: none;
 		}
 	}
 }

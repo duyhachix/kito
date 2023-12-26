@@ -18,7 +18,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="line"></div>
+		<div class="line first-line"></div>
 		<div class="footer__body">
 			<div class="footer__body--option" v-for="term in terms" :key="term.title">
 				<div class="title">{{ term.title }}</div>
@@ -134,7 +134,6 @@ export default {
 .footer {
 	padding: 0 255px;
 	width: 100%;
-	height: 100%;
 	margin-bottom: 27px;
 	&__header {
 		display: flex;
@@ -203,6 +202,7 @@ export default {
 		margin-bottom: 27px;
 	}
 	&__body {
+		width: 100%;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		gap: 10px;
@@ -240,6 +240,38 @@ export default {
 		font-size: 15px;
 		font-weight: 400;
 		line-height: 26px;
+	}
+}
+@media screen and (max-width: 480px) {
+	.footer {
+		padding: 0 10px;
+		&__header {
+			flex-direction: column;
+			&--right {
+				.content {
+					p {
+						max-width: 100%;
+					}
+					align-items: center;
+					flex-direction: column;
+				}
+			}
+		}
+		.first-line {
+			display: none;
+		}
+		&__body {
+			grid-template-columns: repeat(1, 1fr);
+			gap: 40px;
+			&--option {
+				.title {
+					margin-bottom: 20px;
+				}
+				.terms {
+					row-gap: 15px;
+				}
+			}
+		}
 	}
 }
 </style>

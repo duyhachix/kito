@@ -1,6 +1,6 @@
 <template>
 	<header class="header">
-		<div class="header__credit">
+		<div v-if="isVisible" class="header__credit">
 			<div class="header__credit--left">KITO - Every day low price</div>
 			<div class="header__credit--center">{{ centerContext }}</div>
 			<div class="header__credit--right">
@@ -61,6 +61,9 @@
 					</div>
 				</div>
 			</div>
+			<div class="collapse-menu">
+				<font-awesome-icon :icon="['fas', 'bars']" size="2xl"/>
+			</div>
 		</div>
 	</header>
 </template>
@@ -76,7 +79,21 @@ export default {
 			locales: ['en-US', 'vi-VN', 'ja-JP'],
 			currents: ['USD', 'VND', 'JPY'],
 			pages: ['Toy', 'Furniture', 'Fashion'],
+			isVisible: true,
 		};
+	},
+	created() {
+		window.addEventListener('resize', this.handleResize);
+		this.handleResize();
+	},
+	beforeDestroy() {
+		window.removeEventListener('resize', this.handleResize);
+	},
+	methods: {
+		handleResize() {
+			this.windowWidth = window.innerWidth;
+			this.isVisible = this.windowWidth > 480; // Sửa điều kiện này theo yêu cầu của bạn
+		},
 	},
 };
 </script>
@@ -135,6 +152,9 @@ export default {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		justify-content: space-between;
+		.collapse-menu {
+			display: none;
+		}
 		.nav-item {
 			span {
 				color: $text-color;
@@ -179,6 +199,33 @@ export default {
 					bottom: -5px;
 					right: -5px;
 				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 480px) {
+	.header {
+		height: 75px;
+		&__credit {
+		}
+		&__nav {
+			height: 100%;
+			padding: 0;
+			display: flex;
+			align-items: center;
+			.title{
+				padding-left: 20px;
+			}
+			.collapse-menu {
+				display: block;
+				padding: 0 20px;
+				color: $text-color;
+			}
+			.navbar {
+				display: none;
+			}
+			.cart {
+				display: none;
 			}
 		}
 	}
