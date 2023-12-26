@@ -23,7 +23,7 @@
 			<div class="footer__body--option" v-for="term in terms" :key="term.title">
 				<div class="title">{{ term.title }}</div>
 				<div class="terms">
-					<div class="terms--item" v-for="item in term.items" :key="item.icon">
+					<div class="terms--item btn" v-for="item in term.items" :key="item.icon">
 						<font-awesome-icon v-if="item.icon" :icon="[item.brand ? 'fab' : 'fas', item.icon]" />
 						{{ item.context }}
 					</div>
@@ -135,6 +135,7 @@ export default {
 	padding: 0 255px;
 	width: 100%;
 	margin-bottom: 27px;
+
 	&__header {
 		display: flex;
 		justify-content: space-between;
@@ -242,11 +243,11 @@ export default {
 		line-height: 26px;
 	}
 }
+
 @media screen and (max-width: 1700px) {
 	.footer {
 		padding: 0 150px;
 	}
-	
 }
 @media screen and (max-width: 480px) {
 	.footer {

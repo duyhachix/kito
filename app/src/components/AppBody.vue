@@ -12,7 +12,7 @@
 			<div class="body__cta--left">
 				<p class="about">ABOUT US</p>
 				<h1 class="quote">Bring Exciting Moments of Fun While Playing & Learning For Children.</h1>
-				<h4 class="contact">CONTACT US</h4>
+				<h4 class="contact btn">CONTACT US</h4>
 			</div>
 			<div class="body__cta--right">
 				<div class="video">
@@ -52,7 +52,7 @@
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas nisi cumque culpa, nulla
 						ducimus placeat perferendis quae
 					</p>
-					<h5>CONTACT US</h5>
+					<h5 class="btn">CONTACT US</h5>
 				</div>
 			</div>
 		</div>
@@ -209,6 +209,9 @@ export default {
 	padding: 0 255px;
 	width: 100%;
 	height: 100%;
+	.btn {
+		cursor: pointer;
+	}
 	.section {
 		margin-bottom: 100px;
 	}
